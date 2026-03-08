@@ -1,0 +1,27 @@
+services:
+
+  webapp:
+    build: .
+    container_name: fullstack-webapp
+    environment:
+      - APP_ENV=production
+      - REDIS_HOST=redis
+    depends_on:
+      - redis
+    restart: unless-stopped
+
+  nginx:
+    image: nginx:alpine
+    container_name: fullstack-nginx
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+    depends_on:
+      - webapp
+    restart: unless-stopped
+
+  redis:
+    image: redis:alpine
+    container_name: fullstack-redis
+    restart: unless-stopped

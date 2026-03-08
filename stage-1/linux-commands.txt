@@ -1,0 +1,7 @@
+List of 6 Linux commands I have learnt and what they do:
+1. grep----- Search Inside files
+2. find----- Search for files
+3. top------ Says what processes are running
+4. free -h-- How many RAM is been used
+5. df -h---- How much disk space is used
+6. rm -r --- Used to delete directory
